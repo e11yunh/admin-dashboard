@@ -1,0 +1,30 @@
+:root {
+    margin: 0;
+    padding: 0;
+}
+
+#main-container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    border: 1px solid slateblue;
+}
+
+#main-container > * {
+    border: 1px solid black;
+}
+
+#sidebar {
+    grid-column: span 1;
+    grid-area: 1 / 1 / -1 / 2;
+}
+
+#header {
+    grid-area: 1 / 2 / 2 / -1;
+}
+
+#content {
+    grid-area: 2 / 2 / -1 / -1;
+}
