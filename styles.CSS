@@ -1,14 +1,50 @@
-:root {
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+* {
     margin: 0;
-    padding: 0;
+  }
+  
+body {
+    line-height: 1.5;
+    font-family: sans-serif;
+  }
+  
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+input, button, textarea, select {
+    font: inherit;
+  }
+  
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+p {
+    text-wrap: pretty;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+li {
+    list-style-type: none;
 }
 
 #main-container {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: 
+    'sidebar header'
+    'sidebar main';
     border: 1px solid slateblue;
 }
 
@@ -17,14 +53,72 @@
 }
 
 #sidebar {
-    grid-column: span 1;
-    grid-area: 1 / 1 / -1 / 2;
+    grid-area: sidebar;
+    display: grid;
+    border: 1px solid salmon;
+    grid-template-rows: 1fr 9fr;
+    grid-template-areas: 
+    'logo'
+    'nav';
+    color: white;
+    background-color: hsl(206, 78%, 55%);
+    font-size: 18px;
+}
+
+#brand-logo {
+    grid-area: logo;
+}
+
+#nav-bar {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid saddlebrown;
+}
+
+#user-nav {
+    border: 1px solid blue;
+    margin-bottom: 50px;
+    display: grid;
+    gap: 10px;
+}
+
+#system-config {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 #header {
-    grid-area: 1 / 2 / 2 / -1;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    'search-bar user-info'
+    'user-greeting user-btns';
+}
+
+#search-container {
+    grid-area: search-bar;
+}
+
+
+#user-info {
+    grid-area: user-info;
+}
+
+#user-greeting {
+    grid-area: user-greeting;
+}
+
+#user-btns {
+    grid-area: user-btns;
 }
 
 #content {
-    grid-area: 2 / 2 / -1 / -1;
+    grid-area: main;
 }
+
+
