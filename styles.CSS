@@ -126,12 +126,12 @@ li {
     grid-area: header;
     display: grid;
     grid-template-columns: 70% 1fr;
-    grid-template-rows: 26% 1fr;
+    grid-template-rows: 24% 1fr;
     grid-template-areas: 
     'search-bar user-info'
     'user-greeting user-btns';
     padding-top: 25px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     padding-left: 40px;
     padding-right: 40px;
     gap: 20px;
@@ -161,39 +161,41 @@ li {
     align-self: center;
 }
 
-#header-bottom {
-    display: flex;
-    grid-column: 1 / -1;
-    border: 1px solid rgb(8, 0, 25);
-    gap: 40px; 
-    justify-content: baseline;
-}
-
 #user-info {
     grid-area: user-info;
     display: flex;
     justify-content: center;
     border: 1px solid rgb(82, 170, 78);
     align-items: center;
-    gap: 40px;
+    gap: 40px; 
     font-size: 18px;
 }
 
+#header-bottom {
+    grid-column: 1 / -1;
+    border: 1px solid rgb(8, 0, 25);
+}
+
 #user-greeting {
-    display: flex;
-    width: 60%;
-    gap: 15px;
+    display: grid;
+    width: 100%;
+    height: 100%;;
+    grid-template-columns: minmax(80px, 7%) 1fr 40%;
     border: 1px solid rgb(0, 47, 255);
     align-items: flex-end;
     font-size: 24px;
 }
 
+#user-greeting > * {
+    border: 1px solid gold;
+}
+
 #user-btns {
     display: flex;
-    gap: 30px;
-    font-size: 18px;
-    border: 1px solid violet;
+    gap: 35px;
+    font-size: 20px;
     flex: 1;
+    height: 50%;
     align-items: flex-end;
     text-align: center;
 }
@@ -203,14 +205,14 @@ button {
     color: white;
     background-color: var(--theme-color);
     border: none;
-    width: 30%;
-    height: 50%;
+    height: 100%;
+    width: 100%;
 }
 
 #content {
     grid-area: main;
     display: grid;
-    grid-template-columns: 40% 40% 1fr;
+    grid-template-columns: 35% 35% 1fr;
     grid-template-rows: repeat(6, 1fr);
     background-color: var(--content-color);
     grid-template-areas: 
@@ -221,7 +223,7 @@ button {
     'project project trending'
     'project project trending';
     gap: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
 }
 
 #content > * {
@@ -233,8 +235,8 @@ button {
     grid-area: project;
     display: grid;
     grid-template-rows: 24px 1fr;
-    padding-top: 10px;
-    padding-left: 10px;
+    padding-top: 30px;
+    padding-left: 20px;
     gap: 10px;
 }
 
@@ -245,14 +247,13 @@ button {
 #project-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-
+    gap: 30px;
 }
 
 #project-container > * {
     border: 1px solid mediumturquoise;
     border-radius: 10px;
-    box-shadow: inset 7px 0 #F0B329;
+    box-shadow: inset 10px 0 0 #F0B329;
 }
 
 #project-container > div {
@@ -260,6 +261,7 @@ button {
     flex-direction: column;
     padding: 20px;
     position: relative;
+    background-color: white;
 }
 
 #project-container div > * {
@@ -282,17 +284,26 @@ button {
 
 #announcements {
     grid-area: announcement;
-    padding-top: 10px;
     display: flex;
     flex-direction: column;
 }
 
+#announcements, #trending {
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
 .side-card {
-    margin-top: 5px;
+    margin-top: 8px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    font-size: 24px;
     flex: 1;
-    padding: 10px;
+    padding: 30px;
+    padding-top: 40px; 
+    height: 100%;
     border-radius: 8px;
     background-color: rgb(255, 255, 255); 
 }
@@ -301,6 +312,10 @@ button {
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+#trending-card {
+    padding: 20px;
 }
 
 #announcement-card p {
@@ -327,6 +342,7 @@ button {
     flex-direction: column;
     font-size: 10px;
     flex-grow: 1;
+    font-size: 16px;
 }
 
 
@@ -337,6 +353,6 @@ hr {
     border-top: 1px solid var(--content-color);
 }
 
-#announcements, #trending {
-    padding-right: 15px;
+.sub-heading {
+    color: gray;
 }
